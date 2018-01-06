@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TextInput from './TextInput';
 import Button from './Button';
-import { spacing } from "../constants/css-variables";
+import { spacing, colors } from "../constants/css-variables";
 
 const FormGroup = styled.div`
     display: flex;
@@ -32,10 +32,12 @@ class OneFieldForm extends React.Component {
     render() {
         const { placeholder } = this.props;
         const { value } = this.state;
+        const leftElementStyle = {borderTopRightRadius: "0", borderBottomRightRadius: "0"};
+        const rightElementStyle = {borderTopLeftRadius: "0", borderBottomLeftRadius: "0"};
         return (
             <FormGroup>
-                <TextInput onChange={this.handleChange} placeholder={placeholder} value={value}/>
-                <Button onClick={this.handleSubmit}>Submit</Button>
+                <TextInput onChange={this.handleChange} placeholder={placeholder} value={value} style={leftElementStyle}/>
+                <Button onClick={this.handleSubmit} style={rightElementStyle}>Submit</Button>
             </FormGroup>
         );
     }
